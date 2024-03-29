@@ -3,10 +3,9 @@ import React, { useContext } from 'react'
 import Image from "next/image";
 import { Context } from '@/app/myContext';
 
-// import cardData from '@/data/dataForCards';
 
 const Card = ({ data }: any) => {
-    const { dark } = useContext(Context);
+    const { dark } = useContext(Context)
     return (
         <>
             <div className={`m-2 cursor-pointer ${dark ? "bg-zinc-800 border-zinc-800 text-zinc-100" : "bg-white"}

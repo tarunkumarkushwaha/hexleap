@@ -1,5 +1,4 @@
 "use client"
-
 import { Context } from "./myContext";
 import Navbar from "@/component/Navbar";
 import Section1 from "@/component/Section1";

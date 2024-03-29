@@ -2,10 +2,9 @@
 import React, { useContext } from 'react'
 import Image from "next/image";
 import { Context } from '@/app/myContext';
-// import cardData from '@/data/dataForCards';
 
 const AdCard = () => {
-    const { dark, themeChange } = useContext(Context);
+    const { dark } = useContext(Context);
  
     return (
         <>
