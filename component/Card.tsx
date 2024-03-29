@@ -1,33 +1,37 @@
 "use client"
-import React from 'react'
+import React, { useContext } from 'react'
 import Image from "next/image";
-import cardData from '@/data/dataForCards';
+import { Context } from '@/app/myContext';
 
-const Card = () => {
-    console.log(cardData)
+// import cardData from '@/data/dataForCards';
+
+const Card = ({ data }: any) => {
+    const { dark } = useContext(Context);
     return (
         <>
-            <div className="cursor-pointer hover:scale-110 duration-300 box h-[340px] w-[180px] border border-black p-2 bg-white rounded-md "
-            // style="color: black; background-color: rgb(247, 247, 248);"
-            >
+            <div className={`m-2 cursor-pointer ${dark ? "bg-zinc-800 border-zinc-800 text-zinc-100" : "bg-white"}
+             shadow-md hover:shadow-xl hover:scale-105 duration-500 h-[511px]
+             w-[238px] border p-2 rounded-md flex flex-col justify-between`}>
                 <Image
-              src="/1.png"
-              alt="Vercel Logo"
-              className="h-[80%] w-full"
-              width={100}
-              height={24}
-              priority
-            />
-                <div className=" font-semibold text-sm ">Sacramento River Cats
+                    src={data.imageurl}
+                    alt={data.name}
+                    className="h-[350px] w-full"
+                    width={100}
+                    height={100}
+                    priority
+                />
+                <div className="text-center font-normal text-lg my-2">
+                    {data.name}
                 </div>
-                <div className="bg-[#F7F7F8] h-[50px]  detail  "
-                // style="color: black; background-color: rgb(247, 247, 248);"
+                <div className={`flex flex-row  ${dark ? "bg-zinc-900 border-zinc-900 text-zinc-100" : "text-slate-500 bg-slate-100"}`}
                 >
-                    <span className=" mx-3 events event ">Total Events</span>
-                    <span className="events ">sport</span>
-                    <div className="  flex justify-start gap-5 flex-row ">
-                        <span className="  font-semibold   text-sm">48 Events</span>
-                        <span className=" font-semibold text-sm  gamename">Baseball</span>
+                    <div className="flex flex-col rounder-2xl my-2 p-2">
+                        <p className={`text-center test-xl ${dark ? "text-zinc-500":""} `}>Total Events</p>
+                        <p className={`${dark ? "text-zinc-100":"text-black"} text-center font-medium`}>{data.totalEvents} events</p>
+                    </div>
+                    <div className="flex flex-col rounder-2xl my-2 p-2">
+                        <p className={`text-center test-xl ${dark ? "text-zinc-500":""} `}>Sport</p>
+                        <p className={`${dark ? "text-zinc-100":"text-black"} text-center font-medium`}>{data.sports}</p>
                     </div>
                 </div>
             </div>
