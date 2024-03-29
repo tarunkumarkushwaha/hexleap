@@ -18,7 +18,7 @@ const Navbar = () => {
             checked={dark}
             onChange={() => {
               dark ? localStorage.setItem('Theme', JSON.stringify(false)) : localStorage.setItem('Theme', JSON.stringify(true));
-              setdark(prevtheme => !prevtheme)
+              setdark(dark ? false :true)
             }}
             className="sr-only peer" />
           <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700
